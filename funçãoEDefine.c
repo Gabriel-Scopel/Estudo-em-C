@@ -270,6 +270,51 @@ int main(){
     d = sqrt((a*a)+(b*b)+(c*c));
     printf("Modulo do vetor: %f",d);
 }
+/* Exercício 8
+Elaborar um programa para exibir o ângulo, em graus,  entre dois vetores não nulos do R3. 
+
+cosθ=u⋅v|u||v|
+
+Utilize variável float e  #define PI 3.14159265359
+
+
+Exemplo
+
+Entrada
+
+Digite as coordenadas do 1o. vetor nao nulo:
+
+1 1 4
+
+Digite as coordenadas do 2o. vetor nao nulo:
+
+-1 2 2
+
+Saída
+
+Angulo entre os dois vetores: 44.999996 graus. */
+
+#include <stdio.h>
+#include <math.h>
+#define PI 3.14159265359
+
+
+int main(){
+    float a, b, c, d, e, f, g, h, i, j, k, l, m;
+    printf("Digite as coordenadas do 1o vetor nao nulo:\n");
+    scanf("%f %f %f", &a, &b, &c);
+    printf("Digite as coordenadas do 2o vetor nao nulo:\n");
+    scanf("%f %f %f", &d, &e, &f);
+    g=(a*d)+(b*e)+(c*f);
+    h=sqrt((a*a)+(b*b)+(c*c));
+    i=sqrt((d*d)+(e*e)+(f*f));
+    k=h*i;
+    j=g/k;
+    l=acos(j);
+    m=l*180/PI;
+    
+    printf("Angulo entre os dois vetores: %f graus.",m);
+}
 
 /* Exercício 9
 Elaborar um programa para exibir a média μ  de n números reais.
@@ -303,6 +348,48 @@ int main(){
     }
     media=soma/a;
     printf("Media = %f", media);
+}
+
+/* Exercício 10 
+Elaborar um programa para exibir desvio padrão amostral s e a variância amostral s2  de n números reais.
+
+s2=1n−1⎡⎣∑i=1nx2i−1n(∑i=1nxi)2⎤⎦
+
+
+Utilize variável float
+
+Exemplo
+
+Entrada
+
+5 -5 6 -9 8 5
+
+Saída
+
+Desvio Padrao Amostral = 7.516648
+
+Variancia Amostral = 56.500002 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    float a, b, x, x2, i, s,c, d;
+    x=0;
+    x2=0;
+    scanf("%f", &a);
+    for(i=1;i<=a;i++){
+        scanf("%f", &b);
+        x+=b;
+        x2=x2+(b*b);
+    }
+    c=(x2-(x*x)/a);
+    d=c/(a-1);
+    
+    s=sqrt(d);
+    printf("Desvio Padrao Amostral = %f\n", s);
+    printf("Variancia Amostral = %f", d);
 }
 
 //Exercício 11
