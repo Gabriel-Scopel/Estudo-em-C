@@ -230,6 +230,58 @@ double calc(double v[], int lim){
   
 }
 
+/* Exercício 6
+Leia dois vetores x e y com componentes do tipo double e de tamanho  n. 
+
+Defina uma função para determinar o produto escalar  x⋅y  entre os dois vetores.
+
+x⋅y=∑i=1nxiyi
+
+Teste a função fazendo uma chamada dentro da função "main".
+
+Imprima o resultado solicitado com 2 casas após o ponto decimal.
+
+
+Exemplo:
+
+Entrada:                             Saída:
+
+3                                         6.00
+
+1 1 1
+
+2 2 2 */
+
+#include <math.h>
+#include <stdio.h>
+
+double calc(double[], double[], int);
+
+int main(){
+  int lim;
+  scanf("%d", &lim);
+  double v1[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v1[i]);
+    }
+  double v2[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v2[i]);
+    }
+  printf("Produto Escalar = %.2lf", calc(v1, v2, lim));
+
+}
+
+double calc(double v1[],double v2[], int lim){
+  double b=0;
+  for (int i=0; i<lim; i++){
+    double a=v1[i]*v2[i];
+    b+=a;
+    }
+  return b;
+  
+}
+
 /* Exercício 7
 Elaborar um programa para exibir em graus um ângulo dado em radianos.
 Use uma função graus(). 
@@ -265,4 +317,177 @@ int main(){
 double graus(double ang){
   double a = (ang*180)/M_PI;
   return a;
+}
+
+/* Exercício 8
+Leia dois vetores x e y com componentes do tipo double e de tamanho  n=2 ou n=3. 
+
+Utilize funções para determinar o ângulo θ, em graus, entre os vetores  x e  y , sabendo que:.
+
+cosθ=x⋅y|x||y|
+
+Teste a função fazendo uma chamada dentro da função "main".
+
+Imprima o resultado solicitado com 4 casas após o ponto decimal.
+
+ 3.14159265358979323846
+
+Entrada:                             Saída:
+
+2                                         Angulo entre os vetores: 90.0000 graus.
+
+2 3
+
+ -3 2              
+
+3                                        Angulo entre os vetores: 60.0000 graus.
+
+2 1 -1
+
+1 -1 -2 */
+
+#include <math.h>
+#include <stdio.h>
+#define PI 3.14159265358979323846
+
+double calc(double[], double[],int );
+
+int main(){
+  int lim;
+  scanf("%d",&lim);
+  double v1[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v1[i]);
+    }
+  double v2[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v2[i]);
+    }
+  printf("Angulo entre os vetores: %.4lf graus.", calc(v1, v2, lim));
+
+}
+
+double calc(double v1[],double v2[], int lim){
+  double b=0;
+  for (int i=0; i<lim; i++){
+    double a=v1[i]*v1[i];
+    b+=a;
+    }
+  double c=sqrt(b);
+  
+  double d=0;
+  for (int i=0; i<lim; i++){
+    double a=v2[i]*v2[i];
+    d+=a;
+    }
+  double e=sqrt(d);
+  
+  double f=0;
+  for (int i=0; i<lim; i++){
+    double a=v1[i]*v2[i];
+    f+=a;
+    }
+  
+  
+  double h=f/(e*c);
+  double x=acos(h)*180/PI;
+  return x;
+  
+}
+
+/* Exercício 9
+Leia dois vetores x=(x1,x2,x3) e y=(y1,y2,y3) com componentes do tipo double.
+
+Defina funções para determinar o produto vetorial  x×y  entre os dois vetores.                 
+
+x×y=(x2y3−x3y2,x3y1−x1y3,x1y2−x2y1)                                                                            
+
+Teste as funções fazendo uma chamada dentro da função "main".
+
+Imprima o resultado solicitado com 2 casas após o ponto decimal.
+
+Exemplo:
+
+Entrada:                             Saída:
+
+5 4 3                                    Produto Vetorial = (4.00, -2.00, -4.00)
+
+1 0 1 */
+
+#include <math.h>
+#include <stdio.h>
+
+double calc(double[], double[],int);
+
+int main(){
+  int lim=3;
+  double v1[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v1[i]);
+    }
+  double v2[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v2[i]);
+    }
+  calc(v1, v2, lim);
+
+}
+
+double calc(double v1[], double v2[], int lim){
+  double a= (v1[1]*v2[2] - v1[2]*v2[1]);
+  double b= (v1[2]*v2[0] - v1[0]*v2[2]);
+  double c= (v1[0]*v2[1] - v1[1]*v2[0]);
+  printf("Produto Vetorial = (%.2lf, %.2lf, %.2lf)", a, b, c);
+  
+  return 0;
+  
+}
+
+/* Exercício 12
+Leia um vetor com n componentes do tipo int e
+
+defina uma função busca para retornar o índice de onde um valor dado foi encontrado ou -1.
+
+Teste a função fazendo uma chamada dentro da função "main".
+
+Exemplo:
+
+Entrada:                             Saída:
+
+5 9 7 6 3 2                           2
+
+6
+
+3 4 6 7                                -1
+
+1 */
+
+#include <math.h>
+#include <stdio.h>
+
+double calc(double[],int , double);
+
+int main(){
+  int lim;
+  scanf("%d",&lim);
+  double v1[lim];
+  for (int i=0; i<lim; i++){
+    scanf("%lf", &v1[i]);
+    }
+  double valor;
+  scanf("%lf", &valor);
+  printf("Busca: %0.lf", calc(v1, lim, valor));
+
+}
+
+double calc(double v1[], int lim, double valor){
+  double b=-1;
+  for (int i=0; i<lim; i++){
+    if(v1[i]==valor){
+      b=i;
+    }
+  }
+  
+  return b;
+  
 }
