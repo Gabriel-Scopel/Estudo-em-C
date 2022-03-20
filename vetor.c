@@ -443,6 +443,134 @@ double calc(double v1[], double v2[], int lim){
   
 }
 
+/* Exerício 10
+Leia dois vetores x e y com componentes do tipo double e de tamanho  n. 
+
+Defina uma função para determinar a menor distância  entre os componentes dos dois vetores.
+
+Defina uma função para determinar a maior distância  entre os componentes dos dois vetores.
+
+Teste a função fazendo uma chamada dentro da função "main".
+
+Imprima o resultado solicitado com 2 casas após o ponto decimal.
+
+
+Exemplo:
+
+Entrada:                             Saída:
+
+3                                         Menor Distancia: 1.00
+
+1 2 3                                   Maior Distancia: 5.00
+
+4 5 6  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{   
+    int n,i,j;
+    double menor=10, maior, vari;
+    scanf("%d", &n);
+    double x[n], y[n];
+    for(i =0; i<n;i++){
+        scanf("%lf", &x[i]);
+        }
+    for (i = 0; i < n; i++)
+    {
+        scanf("%lf", &y[i]);
+    }
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j< n;j++){
+            vari = sqrt(pow((x[i]-y[j]),2));
+            if (vari>maior){
+                maior = vari;
+            }
+        }
+    }
+
+    for (i = 0; i < n; i++){
+        for (j = 0; j< n;j++){
+            vari = sqrt(pow((x[i]-y[j]),2));
+            
+            if (vari<menor){
+                menor = vari;
+                
+            }
+        }
+    }
+    printf("Menor Distancia: %.2lf\n", menor);
+    printf("Maior Distancia: %.2lf", maior);
+
+}
+
+/* Exercício 11
+Defina uma função para determinar a menor distância euclidiana  entre n pontos contidos na reta real.
+
+Defina uma função para determinar a maior distância euclidiana entre  n pontos contidos na reta real.
+
+Teste a função fazendo uma chamada dentro da função "main" e use dupla precisão.
+
+Imprima o resultado solicitado com 2 casas após o ponto decimal.
+
+
+Exemplo:
+
+Entrada:                             Saída:
+
+3                                        Menor Distancia: 1.00
+
+2 1 5                                  Maior Distancia: 4.00 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{   
+    int n,i,j;
+    double menor=10, maior,vari;
+    scanf("%d", &n);
+    double x[n], aux;
+    for(i =0; i<n;i++){
+        scanf("%lf", &x[i]);
+        }
+    for (i = 0; i < n; i++){
+        for (j = i+1; j< n;j++){
+            if (x[i]>x[j]){
+                aux = x[i];
+                x[i]=x[j];
+                x[j]=aux;
+            }
+        }
+    }
+    for (i = 0; i < n; i++){
+        for (j = 1; j< n;j++){
+            vari = sqrt(pow((x[i]-x[j]),2));
+            if (i!=j){
+                if (vari<menor){
+               
+                    menor = sqrt(pow(x[i]-x[j],2));
+                    
+            }
+                
+            }
+        }
+    }
+    for (i=0;i<n;i++){
+        for (j=1;j<n;j++){
+            if (sqrt(pow(x[i]-x[j],2))>maior){
+                maior = sqrt(pow(x[i]-x[j],2));
+                
+            }
+        }
+    }
+    printf("Menor Distancia: %.2lf\n", menor);
+    printf("Maior Distancia: %.2lf", maior);
+
+}
+
 /* Exercício 12
 Leia um vetor com n componentes do tipo int e
 
