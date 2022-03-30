@@ -620,3 +620,99 @@ double calc(double v1[], int lim, double valor){
   
 }
 
+//Exercício 3
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main(){
+    char msgOrig[100];
+    int j,i,k;
+    int n=100;
+    printf("Mensagem:\n");
+    fgets(msgOrig, n, stdin);
+    int cara = strlen(msgOrig)-1;
+    printf("Matriz A:\n");
+    int a[2][2];
+    for (i=0;i<2;i++){
+        for (j=0;j<2;j++){
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    int v[2][cara/2];
+    for (i=0;i<2;i++){
+        for (j=0;j<(cara/2);j++){
+            if (i==0){
+                v[i][j]=(int)msgOrig[j*2];
+            }
+            else{
+                v[i][j]=(int)msgOrig[i+(j*2)];
+                    
+            }
+        }
+    }
+    int mr[2][cara/2];
+        for(i=0; i<2;i++){
+            for (j=0;j<(cara/2);j++){
+                mr[i][j]=0;
+                for (k=0; k<2;k++){
+                    mr[i][j]+= a[i][k]*v[k][j];
+                }
+            }
+        }
+    printf("Tamanho da mensagem: %d\n",cara);
+    
+    printf("Mensagem Cifrada:\n");
+    for(j=0;j<(cara/2);j++){
+            for (i=0;i<2;i++){
+                printf("%d\n",mr[i][j]);
+            }
+        }
+    
+}
+
+//Exercício 4
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main(){
+    int j,i,n,k;
+    printf("Digite o tamanho do vetor:\n");
+    scanf("%d", &n);
+    printf("Matriz A:\n");
+    int a[2][2];
+    for (i=0;i<2;i++){
+        for (j=0;j<2;j++){
+            scanf("%d", &a[i][j]);
+        }
+    }
+    int mr[2][n/2];
+    printf("Mensagem cifrada:\n");
+    for(j=0;j<(n/2);j++){
+        for (i=0;i<2;i++){
+            scanf("%d", &mr[i][j]);
+        }
+        
+    }
+    printf("Mensagem decifrada:\n");
+    int v[2][n/2];
+    for(i=0; i<2;i++){
+        for (j=0;j<(n/2);j++){
+            v[i][j]=0;
+            for (k=0; k<2;k++){
+                v[i][j]+= a[i][k]*mr[k][j];
+                    
+            }
+        }
+    }
+    char letra[n];
+    for (j=0;j<(n/2);j++){
+        for (i=0;i<2;i++){
+           letra[i+(j*2)] = v[i][j];
+           printf("%c",letra[i+(j*2)]);
+        }
+    }
