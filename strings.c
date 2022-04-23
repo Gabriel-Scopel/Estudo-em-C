@@ -226,24 +226,43 @@ TR$3uty5Yg0y   */
 #include <stdio.h>
 #include <stdlib.h>
 
+void soma(int[],int[]);
 int main() {
   char str1[51]={};
-  fgets(str1,51,stdin);
-  char str2[51]={};
-  char r1[51]={};
-  char r2[51]={};
-  fgets(str2,51,stdin);
+  int r1[51]={};
   for (int i=0;i<51;i++){
-    if(str1[i]<='9' && str1[i]>='0' && str1[i]!='\0'){
-      r1[i]= (int)str1[i];
+      scanf("%c", &str1[i]);
     }
-  }
- for (int i=0;i<51;i++){
-    if(str2[i]<='9' && str2[i]>='0' && str2[i]!='\0'){
-      r2[i]=str2[i];
+  for (int i=0;i<51;i++){
+      if(str1[i]<='9' && str1[i]>='0'
+      {
+     r1[i]=atoi(&str1[i]);
     }
-   }
+    }
+  char str2[51]={};
+  int r2[51]={};
+  for (int i=0;i<51;i++){
+      scanf("%c", &str2[i]);
+    }
+  for (int i=0;i<51;i++){
+      if(str1[i]<='9' && str1[i]>='0'){
+     r2[i]=atoi(&str2[i]);
+    }
+    } 
+  soma(r1,r2);
+}
+void soma(int r1[],int r2[]){
+  int soma1=0;
+  for(int i=0;i<51;i++){
+    soma1+=r1[i];
   }
+  int soma2=0;
+  for(int i=0;i<51;i++){
+    soma2+=r1[i];
+  }
+  printf("%d", soma1+soma2);
+  
+}
 
 /* exercício 7
 Implemente um programa denominado combinador, que recebe duas strings e deve combiná-las, alternando as letras de cada string, começando com a primeira letra da primeira string, seguido pela primeira letra da segunda string, em seguida pela segunda letra da primeira string, e assim sucessivamente. 
