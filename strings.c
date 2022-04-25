@@ -225,43 +225,34 @@ TR$3uty5Yg0y   */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void soma(int[],int[]);
+
 int main() {
-  char str1[51]={};
-  int r1[51]={};
-  for (int i=0;i<51;i++){
-      scanf("%c", &str1[i]);
-    }
-  for (int i=0;i<51;i++){
-      if(str1[i]<='9' && str1[i]>='0'
-      {
-     r1[i]=atoi(&str1[i]);
-    }
-    }
-  char str2[51]={};
-  int r2[51]={};
-  for (int i=0;i<51;i++){
-      scanf("%c", &str2[i]);
-    }
-  for (int i=0;i<51;i++){
-      if(str1[i]<='9' && str1[i]>='0'){
-     r2[i]=atoi(&str2[i]);
-    }
+   int i=0;
+  char texto[50]={}, texto1[50]={};
+  fgets(texto, 55,stdin);
+  fgets(texto1, 55,stdin);
+  char num1[50]={}, num2[50]={};
+  int tam1=0,tam2=0;
+  for (i=0;i<55;i++){
+    if ((texto[i]>= '0') && (texto[i]<='9')){
+        num1[tam1]=texto[i];
+        tam1++;
     } 
-  soma(r1,r2);
-}
-void soma(int r1[],int r2[]){
-  int soma1=0;
-  for(int i=0;i<51;i++){
-    soma1+=r1[i];
   }
-  int soma2=0;
-  for(int i=0;i<51;i++){
-    soma2+=r1[i];
+  for (i=0;i<55;i++){
+    if ((texto1[i]>= '0') && (texto1[i]<='9')){
+        num2[tam2]=texto1[i];
+        tam2++;
+    } 
   }
-  printf("%d", soma1+soma2);
   
+  
+  int num01 = atoi(num1);
+  int num02 = atoi(num2);
+ 
+  printf("%d", num01+num02 );
 }
 
 /* exercício 7
