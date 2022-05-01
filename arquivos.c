@@ -118,6 +118,42 @@ int main(){
     return 0;
 }
 
+/* Exercício 4
+Elabore um programa que exibe os valores abaixo solicitados de uma determinada empresa. 
+
+Considere o arquivo empresaR.txt
+
+A cada linha desse arquivo contém o primeiro nome do funcionário (string),
+
+gênero (m ou f, char) e a idade (int), nesta ordem.
+
+Exemplo:
+
+Maria f 23
+
+Valores Solicitados:
+
+a quantidade total de funcionários;
+o nome dos funcionários com mais de 25 anos e sua idade;
+a quantidade de funcionários com mais de 25 anos de idade;
+a quantidade total de funcionários do sexo feminino.
+
+Saída:
+
+Total de funcionarios: 10
+
+Nome do funcionario +25: Artur   idade: 54
+Nome do funcionario +25: Pedro   idade: 60
+Nome do funcionario +25: Juca    idade: 30
+Nome do funcionario +25: Bene    idade: 48
+Nome do funcionario +25: Caio    idade: 32
+Nome do funcionario +25: Dirce   idade: 45
+Nome do funcionario +25: Maria   idade: 34
+
+Total de funcionarios +25: 7
+
+Total de funcionarias: 5 */
+
 /* Exercício 5
 Elabore um programa que exibe os valores abaixo solicitados de uma determinada empresa. 
 
