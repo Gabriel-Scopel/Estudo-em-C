@@ -118,41 +118,28 @@ int main(){
     return 0;
 }
 
-/* Exercício 4
-Elabore um programa que exibe os valores abaixo solicitados de uma determinada empresa. 
+/*Exercício 4
+ Leia três vetores u, v e w com componentes do tipo float e de tamanho  n=3 de um arquivo.
 
-Considere o arquivo empresaR.txt
+Utilize funções para determinar o volume de um paralelepípedo formado pelos vetores  u, v e w.
 
-A cada linha desse arquivo contém o primeiro nome do funcionário (string),
+O volume de um paralelepípedo é igual ao módulo do produto misto de u, v e w e
 
-gênero (m ou f, char) e a idade (int), nesta ordem.
+o produto misto de u, v e w é dado por:
 
-Exemplo:
+(u,v,w)=u⋅(v×w),
 
-Maria f 23
+assim o volume de um paralelepípedo é:
 
-Valores Solicitados:
+Volume=|(u,v,w)|
 
-a quantidade total de funcionários;
-o nome dos funcionários com mais de 25 anos e sua idade;
-a quantidade de funcionários com mais de 25 anos de idade;
-a quantidade total de funcionários do sexo feminino.
+Teste a função fazendo uma chamada dentro da função "main".
 
-Saída:
+Imprima o resultado solicitado com 4 casas após o ponto decimal.
 
-Total de funcionarios: 10
+Obs.: Utilize o arquivo prodMistoR.txt
 
-Nome do funcionario +25: Artur   idade: 54
-Nome do funcionario +25: Pedro   idade: 60
-Nome do funcionario +25: Juca    idade: 30
-Nome do funcionario +25: Bene    idade: 48
-Nome do funcionario +25: Caio    idade: 32
-Nome do funcionario +25: Dirce   idade: 45
-Nome do funcionario +25: Maria   idade: 34
-
-Total de funcionarios +25: 7
-
-Total de funcionarias: 5 */
+ */
 
 /* Exercício 5
 Elabore um programa que exibe os valores abaixo solicitados de uma determinada empresa. 
