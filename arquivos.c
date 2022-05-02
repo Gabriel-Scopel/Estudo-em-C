@@ -141,6 +141,72 @@ Obs.: Utilize o arquivo prodMistoR.txt
 
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int main(){
+    
+    FILE *fr = fopen("prodMistoR.txt","r");
+    int k;
+    int d1=0, d2=0, d3=0;
+    float num1;
+    float x[3]={}, y[3]={}, z[3]={} ;
+    for (k = 0; k < 9; k++){
+        fscanf(fr, "%f", &num1);
+        if (k>=0 && k<3){
+            if(d1==0 && d2==0 &&d3==0){
+                x[d1]= num1;
+                d1 +=1;
+            }
+            else if(d1==1 && d2==0 &&d2== 0){
+                y[d2]= num1;
+                d2 +=1;
+            }
+            else if(d1==1 && d2==1 && d3==0){
+                z[d3]= num1;
+                d3 +=1;
+            }
+            
+        }
+        else if(k>=0 && k<6){
+            if(d1==1 && d2==1 &&d3==1){
+                x[d1]= num1;
+                d1 +=1;
+            }
+            else if(d1==2 && d2==1 &&d2== 1){
+                y[d2]= num1;
+                d2 +=1;
+            }
+            else if(d1==2 && d2==2 && d3==1){
+                z[d3]= num1;
+                d3 +=1;
+            }
+        }
+        else if(k>=6 && k<9){
+            if(d1==2 && d2==2 &&d3==2){
+                x[d1]= num1;
+                d1 +=1;
+            }
+            else if(d1==3 && d2==2 &&d2== 2){
+                y[d2]= num1;
+                d2 +=1;
+            }
+            else if(d1==3 && d2==3 && d3==2){
+                z[d3]= num1;
+                d3 +=1;
+            }
+        }
+    }
+    fclose(fr);
+    printf("x = (%.4f, %.4f, %.4f)\n", x[0], x[1], x[2]);
+    printf("y = (%.4f, %.4f, %.4f)\n", y[0], y[1], y[2]);
+    printf("z = (%.4f, %.4f, %.4f)\n", z[0], z[1], z[2]);
+    float valor = x[0]*((y[1]*z[2])-(y[2]*z[1])) - x[1]*((y[0]*z[2])-(y[2]*z[0])) + x[2]*((y[0]*z[1])-(y[1]*z[0]));
+    printf("Volume: %.4f\n", sqrt(pow(valor,2)));
+}
+
 /* Exercício 5
 Elabore um programa que exibe os valores abaixo solicitados de uma determinada empresa. 
 
