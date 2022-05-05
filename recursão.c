@@ -45,6 +45,53 @@ double Pot(int num,int exp){
   return 1; 
 }
 
+/* Exercício 2
+Frequência de Números
+
+Dada uma sequência de n números inteiros imprimir quantas vezes cada número aparece na entrada de dados, ou seja, deve-se escrever cada um dos valores distintos que aparecem na entrada por ordem crescente de valor.
+
+
+Exemplo:
+
+Entrada:                                                   
+7
+9
+11
+9
+13
+5
+11
+11
+Saída:
+5 aparece 1 vez(es)
+9 aparece 2 vez(es)
+11 aparece 3 vez(es)
+13 aparece 1 vez(es) */
+
+/* #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int main(void){
+  int n;
+  scanf("%d", &n);
+  int v[n];
+  for(int i=0;i<n;i++){
+    scanf("%d", &v[i]);
+  }
+  for(int i=0;i<n;i++){
+    if(v[i]<v[1+i]){
+      v[i]=v[i+1];
+      v[n]=v[0];
+    }
+  } 
+  for(int i=0;i<n;i++){
+    printf("%d\n", v[i]);
+  }
+  
+} */
+
 /* Exercício 3
 Série Harmônica
 
