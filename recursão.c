@@ -113,21 +113,84 @@ Entrada                                                     Saída:
 #include <string.h>
 #include <math.h>
 
+double x=0;
+double valor=0;
+
 double sh(int);
 
 int main(void) {
   int n;
   scanf("%d", &n);
-  sh(n);
+  printf("%.4lf",sh(n));
 }
 double sh(int n){
-  double a=1;
-  
-  double valor=0;
-  while(n>0){
-    double valor=valor+(a/n);
-    n--;
-    printf("%lf\n", valor);
+  if(x==n){
+    return valor;
   }
-  return 0;
+  else{
+    x++;
+    valor+=1/x;
+    return sh(n);
+  }
+}
+
+/* Exercício 4
+Torre de Hanói
+
+Torre de Hanói é um "quebra-cabeça" que consiste em uma base contendo três pinos, em um dos quais são dispostos alguns discos uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo.
+
+O problema consiste em passar todos os discos de um pino para outro qualquer, usando um dos pinos como auxiliar, de maneira que um disco maior nunca fique em cima de outro menor em nenhuma situação.
+
+O número de discos pode variar sendo que o mais simples contém apenas três.
+
+É interessante observar que o número mínimo de "movimentos" para conseguir transferir todos os discos da primeira estaca à terceira é 2n−1, sendo n o número de discos. 
+
+Logo:
+
+Para solucionar um Hanói de 4 discos, só necessários 15 movimentos
+
+Para solucionar um Hanói de 7 discos, são necessários 127 movimentos
+
+Para solucionar um Hanói de 15 discos, são necessários 32.767 movimentos
+
+Para solucionar um Hanói de 64 discos, como diz a lenda, são necessários 18.446.744.073.709.551.615 movimentos.
+
+Elaborar um programa que recebe um número inteiro positivo n e que imprima o número de movimentos para solucionar um Hanói de n discos.
+
+Utilizar recursão.
+
+Exemplo:
+
+Entrada                                                     Saída:
+Digite o numero de discos:                       Numero de movimentos com 15 discos: 32767.
+15                        
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int count=0;
+double valor=2;
+
+double f(int );
+
+int main(void) {
+  printf("Digite o numero de discos:\n");
+  int n;
+  scanf("%d", &n);
+  printf("Numero de movimentos com %d discos: %.0lf.",n,f(n));
+}
+
+double f(int n){
+  if(count==n){
+    return (valor/2)-1;
+  }
+  else{
+    count++;
+    valor=valor*2;
+    return f(n);
+  }
+  return 1;
 }
