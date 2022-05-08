@@ -194,3 +194,60 @@ double f(int n){
   }
   return 1;
 }
+
+/* Exercício 5
+Conjectura de Collatz
+
+A conjectura de Collatz é uma conjectura matemática que recebeu este nome em referência ao matemático alemão Lothar Collatz, que foi o primeiro a propô-lo, em 1937.
+
+Esta conjectura aplica-se a qualquer número inteiro e positivo n, e diz-nos para, se este número for par, o dividir por 2, e se for impar, para multiplicar por 3 e adicionar 1.
+
+Desta forma, por exemplo, se a sequência iniciar com o número 5 ter-se-á: 5; 16; 8; 4; 2; 1.
+
+A conjectura apresenta uma regra dizendo que, qualquer número inteiro e positivo, quando aplicado a esta regra, eventualmente sempre chegará a 4, que se converte em 2 e termina em 1.
+
+Considere a seguinte operação em um número inteiro positivo arbitrário dada por:
+
+Se o número é par, divida-o por 2;
+Se é ímpar, multiplique-o por 3 e some 1
+Em notação aritmética, a função  é definida para todo x inteiro e positivo e tal que:
+
+{\displaystyle C(x)={\begin{cases}3x+1&{\text{if }}x\equiv 1{\pmod {2}}\\x/2&{\text{if }}x\equiv 0{\pmod {2}}\end{cases}}}
+
+
+Elaborar um programa que recebe um número inteiro positivo x e que imprima a sequência gerada pela função C(x).
+
+Utilizar recursão.
+
+Exemplo:
+
+Entrada               Saída:
+5                          5 16 8 4 2 1 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int count = 0;
+int res = 1;
+int C(int n){
+    if (count == n || n == 1){
+        printf("%d ", n);
+        return n;
+    }else{
+        count++;
+        printf("%d ", n);
+        if (n%2==0){
+            n= n / 2;
+        }else if(n%2==1){
+            n= (3 *n) + 1;
+        }
+        return C(n);
+    }
+}
+int main(){
+    int n;
+    scanf("%d", &n);
+    C(n);
+} 
