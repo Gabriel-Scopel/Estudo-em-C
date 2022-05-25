@@ -92,6 +92,71 @@ int main(void){
   
 } */
 
+#include <stdio.h>
+#include <stdlib.h>
+
+int count = 0;
+int conjec(int v[],int x, int j, int n)
+{
+  int p = 0, i;
+
+  if (count == n)
+  {
+    return 0;
+  }
+  else
+  {
+    count++;
+
+    for (i = j; i <= n; i++)
+    {
+        if (x == v[i])
+      {
+            p++;
+      }
+        else
+        {
+            printf("%d aparece %d vez(es)\n", x, p);
+            x = v[i];
+            j = i;
+            p = 0;
+            break;
+        }
+    }
+    return conjec(v, x, j, n);
+  }
+}
+
+int main()
+{
+  int n;
+  int i, j;
+
+  scanf("%d", &n);
+
+  int v[n];
+
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%d", &v[i]);
+  }
+
+  for (i = 0; i < n - 1; i++)
+  {
+    for (j = 0; j < n - i - 1; j++)
+    {
+      if (v[j] > v[j + 1])
+      {
+        int temp = v[j];
+        v[j] = v[j + 1];
+        v[j + 1] = temp;
+      }
+    }
+  }
+  i=0;
+  conjec(v, v[i], i ,n);
+}
+
 /* Exercício 3
 Série Harmônica
 

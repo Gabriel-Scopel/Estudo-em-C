@@ -434,3 +434,78 @@ int main(){
 
 
 
+/* Exercício 12:
+                    Regressão Linear
+https://www.ime.usp.br/~fmachado/MAE229/AULA10.pdf
+Para efetuarmos uma regressão linear usamos a equação:
+y = α + β ⋅ x
+onde:
+α = ym − β ⋅ xm  
+β = s_xy / s_xx
+xm = 1 / n ∑ x_i
+ym = 1 / n ∑ y_i
+sxy = ∑ x_i ⋅ y_i − n ⋅ xm ⋅ ym
+sxx = ∑ x^2_i − n ⋅ (xm)^2
+O coeficiente de correlação é dado por:
+r = s_xy / √(s_xx ⋅ s_yy)
+Utilize função void regrLinear (int n){} nos quais os parâmetros são float.
+For example:
+Input                   Result
+2                       Digite o numero de pontos:
+1 8                     Digite o valor da variavel x:
+-1 2                    Digite o valor da variavel y:
+3                       Digite o valor da variavel x:
+                        Digite o valor da variavel y:
+                        Equacao do Modelo: y = 3.000000*x + (5.000000)
+                        Coeficiente de correlacao: 1.000000
+                        Digite o valor a ser estimado:
+                        Estimativa para x = 3.000000 eh y= 14.000000
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    int numPontos;
+    float somaX = 0, somaY = 0;
+    float alfa = 0, beta = 0, sxy = 0, sxx = 0, syy = 0, y, x, mediaX, mediaY, r;
+    
+    printf("Digite o numero de pontos:\n");
+    scanf("%d", &numPontos);
+    
+    for (int i = 0; i < numPontos; i++){
+        printf("Digite o valor da variavel x:\n");
+        scanf("%f", &x);
+
+        somaX += x;
+
+        printf("Digite o valor da variavel y:\n");
+        scanf("%f", &y);
+
+        somaY += y;
+
+        sxy += (x * y);
+        sxx += (x * x);
+        syy += (y * y);
+    }
+    
+    mediaX = somaX/numPontos;
+    mediaY = somaY/numPontos;
+    sxy -= (somaX * somaY);
+    sxx -= (numPontos * (mediaX * mediaX));
+    syy -= (numPontos * (mediaY * mediaY));
+    beta = sxy/sxx;
+    alfa = mediaY - (beta * mediaX);
+    r = (sxy / sqrt(sxx * syy));
+    
+    printf("Equacao do Modelo: y = %.6f*x + (%.6f)\n", beta, alfa);
+    printf("Coeficiente de correlacao: %.6f\n", r);
+    
+    printf("Digite o valor a ser estimado:\n");
+    scanf("%f", &x);
+    
+    y = x * beta + alfa;
+    
+    printf("Estimativa para x = %.6f eh y= %.6f",x,y);
+}
