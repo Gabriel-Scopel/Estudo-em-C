@@ -22,6 +22,7 @@ Entrada:                             Saída:
 #include <stdio.h>
 #include <math.h>
 
+//protótipo da função módulo, se faz necessário pois ela é chamada primeiro na main, antes de existir para o compilador
 double modulo(double v[], int);
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
   for (int i=0; i<n; i++){
     scanf("%lf", &v[i]);
   }
-  printf("Modulo = %.4lf", modulo(v, n));
+  printf("Modulo = %.4lf", modulo(v, n)); //todo vetor ao ser passado para uma função envia na verdade um ponteiro para o primeiro elemento, por isso ele recebe um ponteiro na função módulo
 }
 
 double modulo (double *v, int n){
